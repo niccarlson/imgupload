@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>APImgUp</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	</head>
+
+	<body>
+		<section class="section">
+			<div class="container">
+			
+			<div class="box" style="display: inline-block">
+				<h1 class="title">
+					Upload File
+				</h1>
+				<p class="subtitle" id="tagLabel">
+					Upload a file to view your tag.
+				</p>
+				<progress class="progress is-primary is-hidden" id="progress" value="0" max="100">0%</progress>
+
+				<div style="display: inline-flex;">
+				<div class="file has-name">
+					<label class="file-label">
+					<input class="file-input" id="fileIn" type="file" name="resume" onchange="fileSelected()">
+					<span class="file-cta">
+						<span class="file-icon">
+						<i class="fas fa-upload"></i>
+						</span>
+						<span class="file-label">
+						Choose a file…
+						</span>
+					</span>
+					<span class="file-name">
+						No file selected
+					</span>
+					</label>
+				</div>
+				
+				<button class="button is-primary" style="margin-left: 1vw;" onClick="uploadFile()">Upload</button>
+			</div>
+				</div>
+
+
+
+
+				<div class="box" style="display: inline-block">
+				<h1 class="title">Download File</h1>
+				<p class="subtitle">Enter your file tag to download.</p>
+				<div style="display: inline-flex;">
+				<input type=text class="input" style="width: 14vw;" id="tagInput" placeholder="Enter your file tag here...">
+				<a class="button is-primary" style="margin-left: 1vw;" href=# onclick="downloadFile()">Download</a> 
+				</div>
+				
+				</div>
+
+			</div>
+		</section>
+
+		<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-storage.js"></script>
+		<script>
+			var firebaseConfig = {
+				apiKey: "AIzaSyBiS-j10qSdgSP3OJDS7MaF_5lCGqcP-7A",
+				authDomain: "apimguploader.firebaseapp.com",
+				databaseURL: "https://apimguploader.firebaseio.com",
+				projectId: "apimguploader",
+				storageBucket: "apimguploader.appspot.com",
+				messagingSenderId: "1095650038715",
+				appId: "1:1095650038715:web:d38001105d181946e8aa9e"
+			};
+			firebase.initializeApp(firebaseConfig);
+			var storageRef = firebase.storage().ref();
+		</script>
+		<script src="daemon.js"></script>
+
+	</body>
+</html>
